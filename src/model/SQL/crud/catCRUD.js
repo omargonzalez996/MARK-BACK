@@ -30,7 +30,7 @@ router.post('/categorias', (req, res) => {
 router.put('/categorias/:id', (req, res) => {
     const { id } = req.params;
     const { name } = req.body;
-    const query = `UPDATE Categoria SET cat_name=? WHERE cat_id=${id}`
+    const query = `UPDATE Categorias SET cat_name=? WHERE cat_id=${id}`
     connection.query(query, [name], (err, rows, fields) => {
         if (!err) {
             res.json(rows);

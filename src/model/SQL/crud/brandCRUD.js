@@ -17,7 +17,7 @@ router.get('/marcas', (req, res) => {
 
 router.post('/marcas', (req, res) => {
     const { brand_name, brand_desc, country_id } = req.body;
-    const query = 'INSERT INTO Marcas VALUES(?,?,?);'
+    const query = 'INSERT INTO Marcas (brand_name, brand_desc, country_id) VALUES(?,?,?);'
     connection.query(query, [brand_name, brand_desc, country_id], (err, rows, fields) => {
         if (!err) {
             res.json({ Status: 'Marca Agregada' });

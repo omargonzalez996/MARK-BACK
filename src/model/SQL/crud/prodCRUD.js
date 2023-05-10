@@ -17,7 +17,7 @@ router.get('/productos', (req, res) => {
 
 router.post('/productos', (req, res) => {
     const { cat_id, brand_id, product_name, product_desc, product_price } = req.body;
-    const query = 'INSERT INTO Productos VALUES(?,?,?,?,?);'
+    const query = 'INSERT INTO Productos(cat_id, brand_id, product_name, product_desc, product_price) VALUES(?,?,?,?,?);'
     connection.query(query, [cat_id, brand_id, product_name, product_desc, product_price], (err, rows, fields) => {
         if (!err) {
             res.json({ Status: '0K' });
